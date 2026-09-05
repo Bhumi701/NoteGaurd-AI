@@ -1,0 +1,45 @@
+Yeh raha ready-to-paste form ke liye:
+
+**Project Name / Title:**
+```
+NoteGuard AI — Counterfeit Currency Identification Agent
+```
+
+**Project Objectives:**
+```
+No online payment app today lets a user verify currency authenticity in real time. NoteGuard AI solves this: a user uploads a photo of a currency note and instantly gets a verdict — Genuine, Suspicious, or Fake — based on detection of the note's 6 key security features. This adds a trust layer to any cash-adjacent transaction, increasing user engagement and confidence, and is a feature currently unavailable on any payment platform including Razorpay.
+```
+
+**GitHub Repository URL:**
+```
+https://github.com/Bhumi701/Counterfeit-Indian-Currency-Notes-ALL-denominations.git
+Trained model (Roboflow): https://app.roboflow.com/bhumis-workspace-zqfgg/indian-currency-5og0r-2-yolo26n-t1
+```
+
+**Build Challenges & Technical Obstacles:**
+```
+Initial approach used a multi-agent pipeline (pattern, OCR, texture, thread, feature detection, fusion agents), but accuracy fluctuated around 56-59% due to limited data per denomination. Pivoted to a single YOLO26n detector trained on Roboflow-annotated security features. First attempt with 51 annotated images gave only 19% accuracy with poor precision/recall/F1. Used Roboflow's augmentation tool to expand the dataset to 152 images, which pushed the model to mAP@50 72.1%, precision 64.6%, recall 71.1%, F1-score 67.7%. Key learning: dataset size was the primary bottleneck, not model architecture — more annotated bounding boxes directly translate to accuracy gains, and this project used its own custom-built and Kaggle-published dataset from scratch.
+```
+
+**Script addition** (paste right after the technical journey section, before moving to the demo):
+
+> "This tells me exactly where the biggest lever is — dataset size. Going from 51 to 152 images alone took accuracy from 19 percent to over 70 percent. If we scale this further — more annotated images, more bounding boxes across denominations and lighting conditions — I'm confident this model can cross 90 percent accuracy. The bottleneck isn't the architecture, it's data volume, and that's a very solvable problem with the right resources."
+
+Ye line judges ko batati hai ki tujhe pata hai model kaise improve hoga — scalability ka clear roadmap dikhana strong signal hai.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python main.py "test_images\100-.jpeg"
+
